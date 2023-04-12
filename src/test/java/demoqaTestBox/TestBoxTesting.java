@@ -10,26 +10,27 @@ import org.testng.annotations.Test;
 import static java.lang.Thread.sleep;
 
 public class TestBoxTesting {
-        @Test
-        public void chekLoginTestBox() throws InterruptedException {
-            WebDriver driver = new ChromeDriver();
-            driver.get("https://demoqa.com/text-box");
 
-            driver.manage().window().maximize();
-            driver.findElement(By.xpath("//input[@id= 'userName']")).sendKeys("Roman Roman");
-            driver.findElement(By.xpath("//input[@id= 'userEmail']")).sendKeys("email1@gmail.com");
-            driver.findElement(By.xpath("//textarea[@id= 'currentAddress']")).sendKeys("hshbqsbbxbshq");
-            driver.findElement(By.xpath("//textarea[@id= 'permanentAddress']")).sendKeys("hdfgjsgef");
+    @Test
+    public void chekLoginTestBox() throws InterruptedException {
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/text-box");
 
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("window.scrollBy(0,250)","");
-            sleep(1000);
-            driver.findElement(By.xpath("//button[@id= 'submit']")).click();
+        driver.findElement(By.xpath("//input[@id='userName']")).sendKeys("Roman Roman");
+        driver.findElement(By.xpath("//input[@id='userEmail']")).sendKeys("email1@gmail.com");
+        driver.findElement(By.xpath("//textarea[@id='currentAddress']")).sendKeys("hshbqsbbxbshq");
+        driver.findElement(By.xpath("//textarea[@id='permanentAddress']")).sendKeys("hdfgjsgef");
 
-            Assert.assertEquals(driver.findElement(By.xpath("//p[@id='name']")).getText(), "Name:Roman Roman");
-            sleep(1500);
-            driver.quit();
-        }
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
+
+        sleep(1000);
+        driver.findElement(By.xpath("//button[@id='submit']")).click();
+
+        Assert.assertEquals(driver.findElement(By.xpath("//p[@id='name']")).getText(), "Name:Roman Roman");
+
+        sleep(1500);
+        driver.quit();
+    }
 }
-
-

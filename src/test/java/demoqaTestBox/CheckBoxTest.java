@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import static java.lang.Thread.sleep;
 
 public class CheckBoxTest {
+
     @Test
     public void doIt() throws InterruptedException {
         WebDriver driver = new ChromeDriver();

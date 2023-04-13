@@ -13,9 +13,9 @@ public class CheckBoxTest {
     @Test
     public void doIt() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("https://demoqa.com/checkbox");
 
-        driver.manage().window().maximize();
         driver.findElement(By.xpath("//label[@for='tree-node-home']/preceding-sibling::button")).click();
         sleep(2000);
         driver.findElement(By.xpath("//label[@for='tree-node-downloads']/preceding-sibling::button")).click();

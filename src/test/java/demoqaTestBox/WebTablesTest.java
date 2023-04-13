@@ -9,7 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static java.lang.Thread.sleep;
+
 
 public class WebTablesTest {
     WebDriver driver = new ChromeDriver();

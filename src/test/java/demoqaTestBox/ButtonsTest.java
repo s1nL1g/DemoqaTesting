@@ -34,7 +34,7 @@ public class ButtonsTest {
 
         driver.findElement(By.xpath("//button[text()='Click Me']")).click();
 
-        WebElement messageElement = driver.findElement(By.id("dynamicClickMessage"));
+        WebElement messageElement = driver.findElement(By.xpath("//p[@id='dynamicClickMessage']"));
         String message = messageElement.getText();
 
         Assert.assertEquals(message, "You have done a dynamic click");

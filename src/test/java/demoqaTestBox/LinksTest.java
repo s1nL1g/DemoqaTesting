@@ -48,57 +48,49 @@ public class LinksTest {
 
         String resultCreated = driver.findElement(By.xpath("//p[@id='linkResponse']")).getText();
 
-        Assert.assertTrue(resultCreated.contains("201"));
-        Assert.assertTrue(resultCreated.contains("Created"));
+        Assert.assertTrue(resultCreated.contains("201") && (resultCreated.contains("Created")));
 
         driver.findElement(By.xpath("//a[@id='no-content']")).click();
         sleep(200);
 
         String resultNoContent = driver.findElement(By.xpath("//p[@id='linkResponse']")).getText();
 
-        Assert.assertTrue(resultNoContent.contains("204"));
-        Assert.assertTrue(resultNoContent.contains("No Content"));
+        Assert.assertTrue(resultNoContent.contains("204") && resultNoContent.contains("No Content"));
 
         driver.findElement(By.xpath("//a[@id='moved']")).click();
         sleep(200);
 
         String resultMoved = driver.findElement(By.xpath("//p[@id='linkResponse']")).getText();
 
-        Assert.assertTrue(resultMoved.contains("301"));
-        Assert.assertTrue(resultMoved.contains("Moved Permanently"));
+        Assert.assertTrue(resultMoved.contains("301") && resultMoved.contains("Moved Permanently"));
 
         driver.findElement(By.xpath("//a[@id='bad-request']")).click();
         sleep(200);
 
         String resultBadRequest = driver.findElement(By.xpath("//p[@id='linkResponse']")).getText();
 
-        Assert.assertTrue(resultBadRequest.contains("400"));
-        Assert.assertTrue(resultBadRequest.contains("Bad Request"));
+        Assert.assertTrue(resultBadRequest.contains("400") && resultBadRequest.contains("Bad Request"));
 
         driver.findElement(By.xpath("//a[@id='unauthorized']")).click();
         sleep(200);
 
         String resultUnauthorized = driver.findElement(By.xpath("//p[@id='linkResponse']")).getText();
 
-        Assert.assertTrue(resultUnauthorized.contains("401"));
-        Assert.assertTrue(resultUnauthorized.contains("Unauthorized"));
-
+        Assert.assertTrue(resultUnauthorized.contains("401") && resultUnauthorized.contains("Unauthorized"));
 
         driver.findElement(By.xpath("//a[@id='forbidden']")).click();
         sleep(200);
 
         String resultForbidden = driver.findElement(By.xpath("//p[@id='linkResponse']")).getText();
 
-        Assert.assertTrue(resultForbidden.contains("403"));
-        Assert.assertTrue(resultForbidden.contains("Forbidden"));
+        Assert.assertTrue(resultForbidden.contains("403") && resultForbidden.contains("Forbidden"));
 
         driver.findElement(By.xpath("//a[@id='invalid-url']")).click();
         sleep(300);
 
         String resultNotFound = driver.findElement(By.xpath("//p[@id='linkResponse']")).getText();
 
-        Assert.assertTrue(resultNotFound.contains("404"));
-        Assert.assertTrue(resultNotFound.contains("Not Found"));
+        Assert.assertTrue(resultNotFound.contains("404") && resultNotFound.contains("Not Found"));
     }
 
     @AfterClass
